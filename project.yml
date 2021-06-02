@@ -1,0 +1,35 @@
+name: Coordinator
+
+options:
+  bundleIdPrefix: dev.jano.coordinator
+  usesTabs: false
+  indentWidth: 4
+  tabWidth: 4
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "14.5"
+
+settings:
+  CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+
+packages:
+
+  LogDynamic:
+    url: git@github.com:janodev/log.git
+    from: 1.0.0
+
+targets:
+
+ Coordinator:
+   dependencies:
+     - package: LogDynamic
+   platform: iOS
+   settings:
+     CURRENT_PROJECT_VERSION: 1
+     INFOPLIST_FILE: targets/main/Info.plist
+     IPHONEOS_DEPLOYMENT_TARGET: 14.4
+     PRODUCT_BUNDLE_IDENTIFIER: dev.jano.coordinator
+     PRODUCT_NAME: Coordinator
+   sources: 
+      - sources/main
+   type: framework
